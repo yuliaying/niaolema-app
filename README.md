@@ -4,7 +4,9 @@
 
 一个**单文件、零依赖、可离线**使用的排尿健康记录应用。用浏览器打开即用，也可以「添加到主屏幕」当原生 App 用。所有数据只保存在你自己的设备上，不会上传到任何服务器。
 
-**在线体验**：https://niaolema-app.app.workbuddy.host/
+**在线体验**：https://yuliaying.github.io/niaolema-app/ （GitHub Pages，可直接在微信中打开）
+
+备用地址：https://niaolema-app.app.workbuddy.host/ （该域名会拦截微信内置浏览器）
 
 ---
 
