@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0ea5e9">
+<title>发布与备案指南 · 尿了吗</title>
+<style>
+:root{
+  --bg:#eef4f9;--card:#fff;--line:#e2ecf5;--text:#0f2436;--muted:#6b8299;
+  --brand:#0ea5e9;--brand-dark:#0284c7;--ok:#10b981;--warn:#f59e0b;--danger:#ef4444;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:linear-gradient(180deg,#e6f2fb,#f7fbfe 45%,#eef4f9);background-attachment:fixed;color:var(--text);
+  -webkit-font-smoothing:antialiased;line-height:1.75}
+.page{max-width:760px;margin:0 auto;padding:24px 18px 80px}
+header.appbar{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.logo{width:34px;height:34px;border-radius:11px;background:linear-gradient(140deg,#38bdf8,#0ea5e9);display:grid;place-items:center;box-shadow:0 5px 14px rgba(14,165,233,.35);flex:none}
+.logo svg{width:18px;height:18px}
+header h1{font-size:19px;margin:0;font-weight:800}
+header p{margin:2px 0 0;font-size:12px;color:var(--muted);font-weight:700}
+
+h2{font-size:17px;font-weight:800;margin:34px 0 12px;display:flex;align-items:center;gap:9px}
+h2 .num{flex:none;width:26px;height:26px;border-radius:9px;background:linear-gradient(140deg,#0ea5e9,#22d3ee);color:#fff;display:grid;place-items:center;font-size:13px;box-shadow:0 4px 12px rgba(14,165,233,.3)}
+h3{font-size:14.5px;font-weight:800;margin:22px 0 8px;color:var(--brand-dark)}
+p{margin:8px 0;font-size:14px}
+.card{background:var(--card);border-radius:18px;padding:16px 18px;box-shadow:0 8px 24px rgba(15,54,86,.07);margin-bottom:12px}
+.card p:first-child{margin-top:0}
+.card p:last-child{margin-bottom:0}
+ul,ol{margin:8px 0;padding-left:22px;font-size:14px}
+li{margin:5px 0}
+li::marker{color:var(--brand);font-weight:800}
+code{background:#eef4f9;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px;font-family:ui-monospace,Menlo,Consolas,monospace;color:#0b5f96}
+b,strong{font-weight:800}
+.tip{display:flex;gap:10px;padding:12px 14px;border-radius:14px;font-size:13px;line-height:1.7;margin:12px 0;font-weight:600}
+.tip .ic{flex:none;font-size:15px;line-height:1.5}
+.tip.ok{background:#e7f9f1;color:#0b7a55}
+.tip.warn{background:#fff5e5;color:#96620a}
+.tip.info{background:#eaf4ff;color:#0b5f96}
+.tip.danger{background:#fee2e2;color:#b91c1c}
+
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(15,54,86,.06)}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #f2f7fb;vertical-align:top}
+th{background:#f2f9fe;font-weight:800;color:var(--brand-dark);white-space:nowrap}
+td:first-child{font-weight:700;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+.step{display:flex;gap:12px;margin-bottom:14px}
+.step .n{flex:none;width:26px;height:26px;border-radius:50%;background:#e0f2fe;color:var(--brand-dark);display:grid;place-items:center;font-size:13px;font-weight:800;margin-top:2px}
+.step .b{flex:1}
+.step .b .t{font-size:14px;font-weight:800}
+.step .b .d{font-size:13px;color:#4a6478;margin-top:3px}
+.badge{display:inline-block;font-size:11px;font-weight:800;padding:2px 9px;border-radius:8px;margin-left:6px;vertical-align:1px}
+.badge.a{background:#dcfce7;color:#15803d}
+.badge.b{background:#dbeafe;color:#1d4ed8}
+.badge.c{background:#fef3c7;color:#b45309}
+footer{margin-top:40px;text-align:center;font-size:12px;color:var(--muted);font-weight:600}
+footer a{color:var(--brand-dark);font-weight:800;text-decoration:none}
+.kbd{background:#f1f6fa;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 7px;font-size:12.5px;font-weight:700}
+hr{border:none;border-top:1px dashed var(--line);margin:22px 0}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="appbar">
+  <div class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c0 0-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z" fill="#fff"/></svg></div>
+  <div>
+    <h1>「尿了吗」发布与备案指南</h1>
+    <p>写给零基础开发者的上手手册 · 更新于 2026 年 10 月</p>
+  </div>
+</header>
+
+<div class="tip info"><span class="ic">🎯</span><span>
+<b>先说最重要的结论：</b>「尿了吗」是一个<b>单机应用</b>——它不联网、没有服务器、不上传任何数据（记录只存在你手机本地）。
+按工信部现行规定，<b>单机不联网的应用不需要办理 App 备案</b>。
+所以：自己用、给家人朋友用，<b>完全不用备案</b>；只有将来要联网（加服务器/账号/云同步）或上架国内安卓商店时，才涉及备案。
+</span></div>
+
+<!-- ============ 0 ============ -->
+<h2><span class="num">0</span>先选路线：你要做到哪一步？</h2>
+<div class="card">
+<table><thead><tr><th>你的目标</th><th>推荐方案</th><th>耗时</th><th>花费</th><th>要备案吗</th></tr></thead>
+<tbody>
+<tr><td>自己在手机上用</td><td><b>方案 A</b></td><td>3 分钟</td><td>0 元</td><td>不用</td></tr>
+<tr><td>发给家人朋友用（H5 链接）</td><td><b>方案 A+</b> 分享</td><td>10 秒</td><td>0 元</td><td>不用</td></tr>
+<tr><td>朋友离线也能装、不依赖链接</td><td><b>方案 B</b>（打 APK）</td><td>1–2 小时</td><td>0 元</td><td>不用</td></tr>
+<tr><td>上架应用商店公开下载</td><td><b>方案 C</b></td><td>1–3 个月</td><td>300 元起</td><td>联网才需要；单机也要交承诺函</td></tr>
+<tr><td>加了账号 / 云同步 / 服务器</td><td>必须先<b>备案</b>再上线</td><td>2–4 周</td><td>服务器费</td><td><b>必须要</b></td></tr>
+</tbody></table>
+<p style="font-size:13px;color:var(--muted)">下面章节对应各方案，按需阅读即可，不用全看。</p>
+</div>
+
+<!-- ============ A ============ -->
+<h2><span class="num">A</span>方案 A：网页 + 添加到主屏幕（强烈推荐）<span class="badge a">最快</span></h2>
+<div class="card">
+<p>这个 App 已经做好了 <b>PWA</b>（渐进式 Web 应用）能力并发布上线。你在手机浏览器里打开链接，点「添加到主屏幕」，桌面就会出现一个独立图标，点开是<b>全屏、无地址栏</b>的，看起来和正经 App 没区别，断网也能用（记录都在本地）。</p>
+
+<h3>安卓手机（Chrome / Edge / 华为 / 小米自带浏览器）</h3>
+<div class="step"><div class="n">1</div><div class="b"><div class="t">打开分享链接</div><div class="d">在手机浏览器里打开我给你的分享链接。</div></div></div>
+<div class="step"><div class="n">2</div><div class="b"><div class="t">进入「设置」页签</div><div class="d">App 里有「📲 安装到手机桌面」按钮，直接点它最快；如果按钮没出现，用浏览器菜单里的「添加到主屏幕 / 添加到桌面」。</div></div></div>
+<div class="step"><div class="n">3</div><div class="b"><div class="t">确认安装</div><div class="d">弹窗点「安装」，桌面生成「尿了吗」图标，完成。</div></div></div>
+
+<h3>iPhone / iPad（必须用 Safari）</h3>
+<div class="step"><div class="n">1</div><div class="b"><div class="t">用 Safari 打开链接</div><div class="d">微信里打开的话，点右上角「···」→「在 Safari 中打开」。</div></div></div>
+<div class="step"><div class="n">2</div><div class="b"><div class="t">点底部「分享」按钮 <span class="kbd">⬆️</span></div><div class="d">在 Safari 工具栏中间偏右。</div></div></div>
+<div class="step"><div class="n">3</div><div class="b"><div class="t">选「添加到主屏幕」</div><div class="d">往下滚动找到，点「添加」确认。</div></div></div>
+
+<div class="tip warn"><span class="ic">⚠️</span><span>
+iOS 只认 Safari 的「添加到主屏幕」，用 Chrome / 微信内置浏览器是找不到这个选项的。<br>
+另外：微信内直接打开链接有时会被拦截，务必先「在浏览器中打开」。
+</span></div>
+
+<div class="tip ok"><span class="ic">✅</span><span>
+装好之后就是<b>完全离线</b>的：没有网络、换 Wi-Fi、甚至飞行模式都能正常记录。唯一要注意：<b>别清浏览器数据</b>（清除 Cookie 和网站数据会把记录删掉）。想备份就用 App 设置里的「导出数据」。
+</span></div>
+</div>
+
+<!-- ============ A2 ============ -->
+<h2><span class="num">A+</span>怎么把 H5 分享给朋友</h2>
+<div class="card">
+<p>链接已经在线上，分享出去朋友点开就能用，<b>不需要对方注册、不需要下载任何东西</b>。常用三种方式：</p>
+
+<div class="tscroll">
+<table><thead><tr><th>方式</th><th>怎么操作</th><th>适合场景</th></tr></thead>
+<tbody>
+<tr><td>微信发链接</td><td>把链接复制粘贴到微信聊天框发送，对方点开即用</td><td>一对一、群聊，最常用</td></tr>
+<tr><td>发二维码</td><td>把下面这张二维码图片发到微信/群里，对方长按识别</td><td>面对面、打印张贴、群里发图</td></tr>
+<tr><td>发到朋友圈</td><td>先在微信里打开链接 → 右上角「···」→「分享到朋友圈」</td><td>广而告之</td></tr>
+</tbody></table>
+</div>
+
+<div class="tscroll">
+<table><thead><tr><th>朋友的手机</th><th>打开后会怎样</th></tr></thead>
+<tbody>
+<tr><td>安卓 + 微信</td><td>微信内置浏览器直接可用，正常记录；点「···」→「在浏览器打开」后还可添加到桌面</td></tr>
+<tr><td>安卓 + 系统浏览器</td><td>完整体验，可直接「添加到主屏幕」变成独立 App 图标</td></tr>
+<tr><td>iPhone + 微信</td><td>能正常记录，但<b>无法添加到主屏幕</b>；想装到桌面必须点「···」→「在 Safari 中打开」，再用 Safari 的分享 ⬆️ 添加</td></tr>
+<tr><td>电脑</td><td>浏览器直接打开，界面自动居中成手机宽度，照样能用</td></tr>
+</tbody></table>
+</div>
+
+<h3>分享二维码（长按可保存原图）</h3>
+<img src="./assets/qr.png" alt="尿了吗 二维码"
+     style="width:230px;height:230px;display:block;margin:12px auto 4px;border-radius:20px;box-shadow:0 8px 24px rgba(15,54,86,.12)">
+
+<div class="tip warn"><span class="ic">⚠️</span><span>
+<b>微信注意事项：</b>
+① 部分链接在微信里会被提示「非官方页面」，点「继续访问」即可；如果被拦截打不开，让朋友<b>复制链接到手机浏览器</b>粘贴打开。<br>
+② 朋友圈不能直接发纯链接（会被折叠成一行文字），要先在微信里打开网页，再用右上角「···」分享，才能生成卡片。<br>
+③ 如果你自己用分享卡片时封面图没显示，多半是微信缓存，过一会儿再试。
+</span></div>
+
+<div class="tip danger"><span class="ic">🔒</span><span>
+<b>一定要告诉朋友这点：</b>每个人打开的是<b>自己独立的记录</b>。数据只存在各自手机里，<b>互相看不到</b>，也不会同步到任何服务器。所以：你记的只有你能看；朋友想记录得自己点开记。如果以后想要「家人共享一份记录 / 医生查看数据」，那才需要加云同步功能（同时就要走备案流程了）。
+</span></div>
+
+<div class="tip info"><span class="ic">💡</span><span>
+<b>想发给别人一个安装包？</b>看上面的「方案 B」，用 HBuilderX 云打包出 APK，微信直接发文件即可（对方允许「未知来源安装」就能装）。
+</span></div>
+</div>
+
+<!-- ============ B ============ -->
+<h2><span class="num">B</span>方案 B：打包成 APK 安装包<span class="badge b">离线分发</span></h2>
+<div class="card">
+<p>如果你想要一个真正的 <code>.apk</code> 文件（可以直接发微信、用文件管理器安装，不依赖链接），可以用 <b>HBuilderX 云打包</b>——全程不用装 Android Studio，不用配 Java 环境，最适合新手。</p>
+
+<h3>操作步骤</h3>
+<div class="step"><div class="n">1</div><div class="b"><div class="t">下载 HBuilderX</div><div class="d">官网 <code>dcloud.io</code>，下载「标准版」，安装后免费注册一个 DCloud 账号。</div></div></div>
+<div class="step"><div class="n">2</div><div class="b"><div class="t">新建 5+App 项目</div><div class="d">文件 → 新建 → 项目 → 选「5+App」，项目名填 <code>niaolema</code>，模板选「空模板」。</div></div></div>
+<div class="step"><div class="n">3</div><div class="b"><div class="t">替换网页文件</div><div class="d">把 <code>index.html</code> 整个复制进项目根目录，覆盖自动生成的那个。可以把 <code>manifest.json</code>、<code>sw.js</code>、<code>assets</code> 一起拷进去（APK 内可以不用 PWA，但留着不碍事）。</div></div></div>
+<div class="step"><div class="n">4</div><div class="b"><div class="t">云打包</div><div class="d">菜单「发行 → 原生 App-云打包」。安卓勾选「使用公共测试证书」（自己用够了），包名随便填个如 <code>com.yourname.niaolema</code>，点打包，等 5–10 分钟出包。</div></div></div>
+<div class="step"><div class="n">5</div><div class="b"><div class="t">安装到手机</div><div class="d">把生成的 <code>.apk</code> 传到手机（微信/QQ 发给自己、数据线、网盘都行），点开安装。安卓会提示「未知来源应用」，去 <b>设置 → 允许安装未知来源应用</b> 打开即可。</div></div></div>
+
+<div class="tip warn"><span class="ic">⚠️</span><span>
+<b>公共测试证书</b>只适合自己和朋友用。以后如果想上架商店，一定要用<b>自己的正式证书</b>（HBuilderX 里可以生成），而且证书文件和密码<b>一旦丢失，App 永远无法再更新</b>，务必备份好。
+</span></div>
+<div class="tip ok"><span class="ic">✅</span><span>
+单机 APK 在安卓上<b>侧载（自己安装）不需要任何备案或资质</b>。只有走应用商店分发才需要那一套手续。
+</span></div>
+
+<h3>iOS 怎么办？</h3>
+<p>iPhone 没法像安卓那样随便装 apk。iOS 只有三种方式：① 方案 A 的「添加到主屏幕」（<b>最推荐</b>，效果一样）；② 自己花 99 美元/年注册 Apple Developer，用 Xcode 打包自签（需要 Mac 电脑，且 7 天要重签，麻烦）；③ 上架 App Store（见方案 C）。对个人使用来说，方案 A 是唯一合理选择。</p>
+</div>
+
+<!-- ============ C ============ -->
+<h2><span class="num">C</span>方案 C：上架应用商店<span class="badge c">需资质</span></h2>
+<div class="card">
+<p>上架 = 让陌生人能在应用商店搜到并下载。这一步的门槛不在技术，而在<b>资质</b>。先看清楚要什么：</p>
+
+<div class="tscroll">
+<table><thead><tr><th>资质</th><th>安卓商店（华为/小米/OPPO/vivo/应用宝）</th><th>苹果 App Store 中国区</th></tr></thead>
+<tbody>
+<tr><td>主体</td><td>多数主流商店<b>优先/仅接受企业主体</b>；个人账号类目和权限受限很多，建议注册<b>个体工商户</b>（几百元、3–5 个工作日）</td><td>个人开发者账号可以（99 美元/年）</td></tr>
+<tr><td>软件著作权（软著）</td><td><b>硬性要求</b>，没有不进审核。官方自行申请约 300 元 / 30–60 个工作日；找代理加急 300–800 元 / 1–5 个工作日</td><td>不强制，但建议办理</td></tr>
+<tr><td>App 备案</td><td>联网应用<b>必须</b>；纯单机可选「否-单机」并上传<b>单机承诺函</b>，平台会做单机测试</td><td>中国区上架需在 App Store Connect 填 ICP 备案号</td></tr>
+<tr><td>隐私政策</td><td>必须有可访问的 HTTPS 链接</td><td>必须有，且首启弹窗</td></tr>
+<tr><td>技术门槛</td><td>签名 APK + 加固 + 各商店分别注册提交</td><td>需要 Mac + Xcode，用 WebView 包壳的纯网页应用很容易被以「功能过于简单」拒审</td></tr>
+</tbody></table>
+</div>
+
+<div class="tip danger"><span class="ic">🚫</span><span>
+<b>给你的实话：</b>「尿了吗」本质上是一个网页应用。拿它去上架，iOS 大概率会因为「只是一个网页」被苹果拒绝（审核条款 4.2 Minimum Functionality）；安卓则要过软著这一关。
+<b>如果你只是想要一个能装在手机上的工具，方案 A / B 完全够用且更省心。</b>真想认真做产品上架，建议后续把 App 升级成带原生外壳 + 更多功能的版本再走商店流程。
+</span></div>
+
+<h3>上架的通用流程（以安卓为例）</h3>
+<div class="step"><div class="n">1</div><div class="b"><div class="t">办软著</div><div class="d">中国版权保护中心 <code>ccopyright.com.cn</code> 在线申请，准备源代码前后各 30 页 + 说明文档。找代理可加急。</div></div></div>
+<div class="step"><div class="n">2</div><div class="b"><div class="t">确定主体</div><div class="d">个人 or 个体工商户 / 公司。决定能上哪些商店、能用哪些支付。</div></div></div>
+<div class="step"><div class="n">3</div><div class="b"><div class="t">App 备案（若联网）</div><div class="d">见第 4 章。纯单机则在商店选「单机」并上传承诺函。</div></div></div>
+<div class="step"><div class="n">4</div><div class="b"><div class="t">准备材料</div><div class="d">App 图标、4–5 张手机截图、应用描述、隐私政策链接、测试账号。</div></div></div>
+<div class="step"><div class="n">5</div><div class="b"><div class="t">逐个商店注册开发者账号并提交</div><div class="d">华为、小米、OPPO、vivo、应用宝要<b>分别注册、分别提审</b>，审核一般 1–3 个工作日，驳回会告知原因，改了重提。</div></div></div>
+</div>
+
+<!-- ============ 4 ============ -->
+<h2><span class="num">4</span>工信部备案，到底是怎么回事？</h2>
+
+<div class="card">
+<h3>4.1 什么情况必须备案？</h3>
+<p>依据《互联网信息服务管理办法》和工信部 2023 年《关于开展移动互联网应用程序备案工作的通知》：<b>在中国境内面向公众提供互联网信息服务（网站、App、小程序）都必须备案</b>。但有个重要豁免：</p>
+<div class="tip ok"><span class="ic">📄</span><span>
+<b>单机不联网应用不需要备案。</b>判断标准很简单：用户使用时你的 App 是否要连你的服务器。
+「尿了吗」没有任何服务器、不发任何网络请求，属于单机应用，<b>不需要备案</b>。
+各大安卓商店也认可这一点：提交时在「核准(备案)信息」处选「<b>否-单机</b>」并上传<b>单机承诺函</b>即可（平台会做单机测试验证）。
+</span></div>
+<p>以下情况就<b>必须</b>备案了：</p>
+<ul>
+<li>App 加了<b>账号登录</b>、云同步、排行榜、社区等任何联网功能</li>
+<li>有一个<b>官网/落地页</b>放在国内服务器上供人访问</li>
+<li>想在国内安卓商店上架<b>联网</b>应用</li>
+<li>想上 App Store 中国区（苹果会校验 ICP 备案号）</li>
+</ul>
+
+<h3>4.2 备案的基本概念（先搞懂这几个词）</h3>
+<ul>
+<li><b>主体</b>：备案人。可以是<b>个人</b>（身份证）或<b>企业</b>（营业执照）。个人备案<b>不能用于经营性活动</b>（不能收费、不能放广告变现），工具类自用/公益没问题。</li>
+<li><b>接入服务商</b>：你的服务器/云服务商。备案<b>不是直接找工信部</b>，而是通过接入商提交（阿里云、腾讯云、华为云等），由它初审后转交你所在地的<b>省通信管理局</b>审核。</li>
+<li><b>网站备案 vs App 备案</b>：同一套主体信息，网站备案针对域名，App 备案针对 App 本身（要填包名/平台/商店）。已有网站备案的主体加 App 只需补充 App 信息，不用重填主体。</li>
+<li><b>公安备案</b>：工信部备案通过后 30 天内，还要去「全国互联网安全管理服务平台」做公安联网备案，这是另一件事，别漏。</li>
+</ul>
+
+<h3>4.3 完整备案流程（以阿里云/腾讯云为例）</h3>
+<div class="step"><div class="n">1</div><div class="b"><div class="t">准备前提条件</div><div class="d">
+① 一台<b>境内云服务器</b>（阿里云/腾讯云轻量服务器即可，99 元/年起，需购买 ≥3 个月才有备案资格）；<br>
+② 一个<b>域名</b>（如果是做网站/App 落地页；纯 App 备案不强制要域名）；<br>
+③ 本人身份证正反面照片、手机号、常用邮箱；<br>
+④ 域名已完成<b>实名认证</b>且信息与备案主体一致。
+</div></div></div>
+<div class="step"><div class="n">2</div><div class="b"><div class="t">在云服务商备案控制台发起备案</div><div class="d">登录阿里云/腾讯云 → 搜「ICP 备案 / 网站备案」→ 点「开始备案」。全程网页+小程序操作，不需要跑线下。</div></div></div>
+<div class="step"><div class="n">3</div><div class="b"><div class="t">填写主体信息</div><div class="d">选择「个人」或「企业」，填姓名、身份证号、通讯地址、手机号。地址要写到门牌号，且和身份证一致（不一致会被打回）。</div></div></div>
+<div class="step"><div class="n">4</div><div class="b"><div class="t">填写网站 / App 信息</div><div class="d">
+网站备案：填域名、网站名称、网站内容类别（选「其他」或「博客/个人空间」）、是否提供留言评论等交互功能（新手建议都选「否」，审核快很多）。<br>
+App 备案：填 App 名称、平台（安卓/iOS）、安装包或商店链接、App 图标、功能简介。<b>App 名称要和上架商店的名称完全一致</b>，一个字差都不行。
+</div></div></div>
+<div class="step"><div class="n">5</div><div class="b"><div class="t">上传资料 + 人脸核验</div><div class="d">按提示用手机小程序拍摄身份证正反面、录一段朗读视频做活体人脸核验。部分省份需要「幕布照」（背后手写备案号），系统会明确告诉你。</div></div></div>
+<div class="step"><div class="n">6</div><div class="b"><div class="t">提交，等接入商初审</div><div class="d"><b>1–2 个工作日</b>。有问题会电话或站内信通知你修改，改完重新提交。初审通过后材料自动流转到你所在省的通信管理局。</div></div></div>
+<div class="step"><div class="n">7</div><div class="b"><div class="t">⚠️ 关键一步：工信部短信核验</div><div class="d">管局受理后，工信部会发一条短信到你备案的手机号，<b>里面有个链接，必须 24 小时内点开并确认</b>。很多人卡在这一步没收到/没点，备案被自动退回。期间也要保持手机畅通，管局可能打电话核实。</div></div></div>
+<div class="step"><div class="n">8</div><div class="b"><div class="t">管局审核</div><div class="d">法定最长 <b>20 个工作日</b>，实际多数省份 3–10 个工作日。期间可在备案控制台实时看进度。</div></div></div>
+<div class="step"><div class="n">9</div><div class="b"><div class="t">拿到备案号</div><div class="d">格式如 <code>粤ICP备2026XXXXXX号</code>（网站）或 App 备案号。会短信通知你。</div></div></div>
+<div class="step"><div class="n">10</div><div class="b"><div class="t">备案后 30 天内：公安联网备案</div><div class="d">登录 <code>beian.mps.gov.cn</code>（全国互联网安全管理服务平台）注册，填写主体和网站/App 信息，审核通过后在页脚展示公安备案号。</div></div></div>
+<div class="step"><div class="n">11</div><div class="b"><div class="t">在 App 里展示备案号</div><div class="d">工信部要求在 App <b>显著位置（如「关于」页）标注备案号</b>，并链接到工信部备案查询系统供公众核对。</div></div></div>
+
+<h3>4.4 费用与时间速查</h3>
+<div class="tscroll">
+<table><thead><tr><th>项目</th><th>费用</th><th>耗时</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>轻量云服务器</td><td>99–300 元/年</td><td>—</td><td>备案资格要求 ≥3 个月</td></tr>
+<tr><td>域名</td><td>30–80 元/年</td><td>实名 1 天</td><td>做落地页才需要</td></tr>
+<tr><td>ICP / App 备案</td><td><b>免费</b>（官方不收费）</td><td>合计 2–4 周</td><td>任何「代办收费」都只是帮你填表</td></tr>
+<tr><td>公安联网备案</td><td>免费</td><td>1–2 周</td><td>工信部通过后 30 天内办</td></tr>
+<tr><td>软件著作权</td><td>官费约 300 元</td><td>30–60 工作日</td><td>代理加急 300–800 元 / 1–5 工作日</td></tr>
+<tr><td>Apple 开发者</td><td>99 美元/年</td><td>审核 1–2 天</td><td>仅上 iOS 需要</td></tr>
+<tr><td>安卓商店开发者账号</td><td>免费</td><td>实名 1–3 天</td><td>各商店分别注册</td></tr>
+</tbody></table>
+</div>
+
+<h3>4.5 新手最容易踩的 6 个坑</h3>
+<ol>
+<li><b>短信核验没点</b> —— 24 小时内必须点工信部发的确认链接，是最常见的退回原因。</li>
+<li><b>手机没接管局电话</b> —— 审核期间陌生座机号码也要接，多次联系不上直接退回。</li>
+<li><b>通讯地址与身份证不一致</b> —— 填身份证上的地址最稳。</li>
+<li><b>网站名称起得太大</b> —— 别带「中国」「国家」「云」等词，也别用纯英文/数字，个人备案叫「XX的个人主页」「XX记录」这类最容易过。</li>
+<li><b>备案期间就开通访问</b> —— 首次备案期间，域名指向境内服务器是<b>不能对外访问</b>的，接入了会被阻断，等备案号下来再放开。</li>
+<li><b>拿到备案号就不管了</b> —— 备案号必须挂在网站页脚/App 关于页；信息变更（换手机号、换服务器、App 改名）30 天内要办变更，否则备案会被注销。</li>
+</ol>
+
+<div class="tip info"><span class="ic">💡</span><span>
+<b>如果暂时不想备案：</b>把 App 托管在<b>境外服务器</b>（不备案也能访问，但国内访问速度慢、且属于灰色地带），或者干脆继续用单机版。
+「尿了吗」目前的设计（纯本地存储、无服务器）就是<b>最优解</b>：零成本、零备案、隐私最好。
+</span></div>
+</div>
+
+<!-- ============ 5 ============ -->
+<h2><span class="num">5</span>关于健康数据的合规提示</h2>
+<div class="card">
+<p>排尿记录属于<b>个人健康信息</b>，在《个人信息保护法》里属于敏感个人信息。好消息是：「尿了吗」<b>不收集、不上传、不做任何分析</b>，数据从头到尾只在你自己手机里，天然规避了绝大部分合规义务。</p>
+<p>如果将来要加云同步、账号体系，那就要做这几件事：</p>
+<ul>
+<li>提供<b>隐私政策</b>（明示收集什么、怎么用、存哪、用户怎么删除），并在<b>首次启动时弹窗</b>取得同意</li>
+<li>在应用商店的「隐私」栏如实申报数据类型</li>
+<li>不得将健康数据用于广告或对外共享</li>
+<li>建议做<b>个人信息保护影响评估</b>（PIA）并留存记录</li>
+</ul>
+<p style="font-size:13px;color:var(--muted)">健康类 App 如涉及<b>诊断、治疗建议、医疗广告</b>，监管会严格得多；作为个人记录工具则相对宽松。App 内已经注明「提示仅供参考，不构成医疗建议」。</p>
+</div>
+
+<!-- ============ 6 ============ -->
+<h2><span class="num">6</span>给你的推荐路线</h2>
+<div class="card">
+<p><b>现在立刻做：</b>方案 A —— 手机打开分享链接，添加到主屏幕。3 分钟，结束。</p>
+<p><b>想发给别人安装包：</b>方案 B —— HBuilderX 云打包出 APK，微信发过去就能装。</p>
+<p><b>想做成正经产品上架：</b>先办软著（周期最长，先启动）→ 注册个体工商户或公司 → 如需联网再加服务器并备案 → 逐个商店提审。全程预留 2–3 个月。</p>
+<p><b>永远不用做的：</b>为一个纯单机 App 去「买备案」「买软著」——那些服务是给要上架联网产品的人用的。</p>
+</div>
+
+<footer>
+  <p>本指南由 WorkBuddy 整理，政策如有更新请以<a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">工信部备案管理系统</a>和各云服务商最新说明为准。</p>
+  <p style="margin-top:10px"><a href="./index.html">← 返回「尿了吗」App</a></p>
+</footer>
+
+</div>
+</body>
+</html>
